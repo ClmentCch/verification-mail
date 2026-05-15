@@ -1,0 +1,35 @@
+<script>
+const API_URL = "https://TON-PROJET.vercel.app/api";
+
+async function sendCode() {
+  const email = document.getElementById("email").value;
+
+  const res = await fetch(API_URL + "/send-code", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  });
+
+  const data = await res.json();
+  alert(JSON.stringify(data));
+}
+
+async function verifyCode() {
+  const email = document.getElementById("email").value;
+  const code = document.getElementById("code").value;
+
+  const res = await fetch(API_URL + "/verify-code", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, code })
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    window.location.href = data.redirect;
+  } else {
+    alert(data.message);
+  }
+}
+</script>
