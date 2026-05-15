@@ -1,8 +1,16 @@
-{
-  "name": "verification-mail",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "resend": "^3.0.0"
-  }
-}
+\# Verification Mail API
+
+
+
+Backend Vercel pour envoi et vérification de codes email.
+
+
+
+\## Routes
+
+
+
+POST /api/send-code
+
+POST /api/verify-code
+
